@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Criação')
+@section('title', 'Edição')
 
 @section('content')
 
@@ -10,7 +10,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <title>Adicionar Jogo</title>
+    <title>Editar Jogo</title>
     <style>
         body {
             background-color: #f8f9fa;
@@ -60,29 +60,30 @@
     <div class="container">
         <h1>Insira um novo jogo em sua biblioteca</h1>
         <hr>
-        <form action="{{ route('jogos_store') }}" method="POST">
+        <form action="{{ route('jogos_update', ['id'=>$jogos->id]) }}" method="POST">
             @csrf
+            @method('PUT')
             <div class="form-group">            
                 <label for="nome">Nome:</label>
-                <input type="text" class="form-control" name="nome" placeholder="Digite um nome...">
+                <input type="text" class="form-control" name="nome" value="{{ $jogos->nome }}" placeholder="Digite um nome...">
             </div>
             
             <div class="form-group">            
                 <label for="categoria">Categoria:</label>
-                <input type="text" class="form-control" name="categoria" placeholder="Digite uma categoria para o jogo...">
+                <input type="text" class="form-control" name="categoria" value="{{ $jogos->categoria }}" placeholder="Digite uma categoria para o jogo...">
             </div>
             
             <div class="form-group">            
                 <label for="ano_criacao">Ano de Criação:</label>
-                <input type="text" class="form-control" name="ano_criacao" placeholder="Digite o ano que foi criado o jogo...">
+                <input type="text" class="form-control" name="ano_criacao" value="{{ $jogos->ano_criacao }}" placeholder="Digite o ano que foi criado o jogo...">
             </div>
             
             <div class="form-group">            
                 <label for="valor">Valor:</label>
-                <input type="text" class="form-control" name="valor" placeholder="Digite o valor do jogo...">
+                <input type="text" class="form-control" name="valor" value="{{ $jogos->valor }}" placeholder="Digite o valor do jogo...">
             </div>
 
-            <button type="submit">Adicionar Jogo</button>
+            <button type="submit">Atualizar Jogo</button>
         </form>
     </div>
 </body>
