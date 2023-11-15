@@ -14,16 +14,12 @@ use App\Http\Controllers\JogosController;
 |
 */
 
-// Route::get('/novojogo', function () {
-//     return view('jogos');
-// })->name('jogos');
-
-Route::get('/jogos', [JogosController::class, 'index'])->name('jogos');
-
-Route::get('/home', function () {
-    return view('welcome');
-})->name('home-index');
+Route::prefix('jogos')->group(function(){
+    Route::get('/', [JogosController::class, 'index'])->name('jogos-index');
+    Route::get('/create', [JogosController::class, 'create'])->name('jogos_create');
+    Route::post('/', [JogosController::class, 'store'])->name('jogos_store');
+});
 
 Route::fallback(function(){
-    return "Erro ao encontrar a rota informada.";
+    return response()->json(['error' => 'Rota não encontrada.'], 404);
 });
