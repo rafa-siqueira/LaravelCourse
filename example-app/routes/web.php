@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\JogosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,11 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/novojogo', function () {
-    return view('jogos');
-});
+// Route::get('/novojogo', function () {
+//     return view('jogos');
+// })->name('jogos');
 
-Route::get('/jogos', function () {
+Route::get('/jogos',[jogosController::class, 'index'])->name('jogos');
+
+Route::get('/home', function () {
     return view('welcome');
 })->name('home-index');
 

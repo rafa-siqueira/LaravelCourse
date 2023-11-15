@@ -19,6 +19,37 @@
                 font-family: 'Nunito', sans-serif;
             }
         </style>
+        <style>
+    /* Estilos do Botão */
+    .custom-button {
+      display: inline-block;
+      padding: 12px 24px;
+      font-size: 16px;
+      font-weight: bold;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+      background-color: #3498db;
+      color: #ffffff;
+      border: 2px solid #3498db;
+    }
+
+    /* Estilos Responsivos para Dispositivos Pequenos */
+    @media screen and (max-width: 600px) {
+      .custom-button {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+    }
+
+    /* Efeito Hover */
+    .custom-button:hover {
+      background-color: #2980b9;
+      border-color: #2980b9;
+    }
+  </style>
     </head>
     <body class="antialiased">
         <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
@@ -123,7 +154,11 @@
                     </div>
 
                     <div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
-                        Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
+                        Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})                        
+                    </div>
+                    <div>
+                        <!-- Botão -->
+                        <a href="{{ route('jogos') }}" class="custom-button">Clique Aqui</a>
                     </div>
                 </div>
             </div>
