@@ -18,7 +18,7 @@ use App\Http\Controllers\JogosController;
 //     return view('jogos');
 // })->name('jogos');
 
-Route::get('/jogos',[jogosController::class, 'index'])->name('jogos');
+Route::get('/jogos', [JogosController::class, 'index'])->name('jogos');
 
 Route::get('/home', function () {
     return view('welcome');
